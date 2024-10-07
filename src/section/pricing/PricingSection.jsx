@@ -6,7 +6,7 @@ const PricingSection = () => {
   const [data, setData] = useState(null);
   const [planNames, setPlanNames] = useState([]);
   const [modifiedData, setModifiedData] = useState(new Map());
-
+  console.log(data);
   // fetch and set data
   useEffect(() => {
     const fetchData = async () => {
@@ -33,13 +33,13 @@ const PricingSection = () => {
     setModifiedData(newMap);
   }, [planNames.length]);
 
-  Array.from(modifiedData.entries()).forEach(([key, value]) => {
-    console.log(key + " is " + value);
-  });
-
   return (
     <div className="h-[100vh] w-full flex items-center justify-center">
-      <Wrapper></Wrapper>
+      <Wrapper>
+        {Array.from(modifiedData.entries()).map(([name, data], idx) => (
+          <Card key={idx} planName={name} planData={data} />
+        ))}
+      </Wrapper>
     </div>
   );
 };
