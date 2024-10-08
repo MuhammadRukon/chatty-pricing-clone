@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setPricingData } from "../redux/features/dataSlice";
 
 const useGetData = () => {
   const [data, setData] = useState(null);
+  const dispatch = useDispatch();
   useEffect(() => {
     // fetch and set data
     const fetchData = async () => {
@@ -10,9 +13,9 @@ const useGetData = () => {
       );
       const data = await response.json();
       setData(data);
-      // get all unique plan names
     };
     fetchData();
+    data && dispatch(setPricingData(data));
   }, []);
   return data;
 };
