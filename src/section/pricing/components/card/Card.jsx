@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CardHeader from "./components/Header";
-import DropDown from "./components/DropDown";
+import DropDown from "./components/Dropdown";
 import Summary from "./components/Summary";
 import Features from "./features/Features";
 import CtaButton from "./components/CtaButton";
