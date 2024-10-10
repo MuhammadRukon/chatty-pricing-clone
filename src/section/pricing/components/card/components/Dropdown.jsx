@@ -1,7 +1,7 @@
 import React from "react";
 import { FaAngleDown } from "react-icons/fa6";
 
-const DropDown = ({
+const Dropdown = ({
   color,
   data,
   planData,
@@ -67,4 +67,4 @@ const DropDown = ({
   );
 };
 
-export default DropDown;
+export default Dropdown;
