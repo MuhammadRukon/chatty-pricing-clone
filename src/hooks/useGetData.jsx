@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { setPricingData } from "../redux/features/dataSlice";
 
 const useGetData = () => {
   const [data, setData] = useState(null);
-  const dispatch = useDispatch();
+
   useEffect(() => {
     // fetch and set data
     const fetchData = async () => {
@@ -15,7 +13,6 @@ const useGetData = () => {
       setData(data);
     };
     fetchData();
-    data && dispatch(setPricingData(data));
   }, []);
   return data;
 };

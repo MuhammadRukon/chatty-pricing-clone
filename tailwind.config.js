@@ -9,6 +9,8 @@ export default {
       colors: {
         slate: "#49687e",
         slateLight: "#83a1b7",
+        purple: "#b78deb",
+        purpleLight: "#f7f5fb",
       },
     },
   },

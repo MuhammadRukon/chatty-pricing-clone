@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const useModifyData = (planNames, data) => {
   const [modifiedData, setModifiedData] = useState(new Map());
+
   useEffect(() => {
     const newMap = new Map();
     // array of data based on plan names
