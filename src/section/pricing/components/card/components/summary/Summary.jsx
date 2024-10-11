@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
-import closeDropdownHandler from "../../../../../utils/closeDropdownHandler";
+
 import { LuInfo } from "react-icons/lu";
-import Tooltip from "./tooltip/Tooltip";
-import Dropdown from "./Dropdown";
+
+import closeDropdownHandler from "../../../../../../utils/closeDropdownHandler";
+import Tooltip from "../../../../../../partials/components/tooltip/Tooltip";
+import Dropdown from "./components/Dropdown";
 
 const Summary = ({ planData, color, data, serial, setSerial }) => {
   const dropdownRef = useRef(null);
@@ -11,7 +13,12 @@ const Summary = ({ planData, color, data, serial, setSerial }) => {
   closeDropdownHandler(dropdownRef, setIsOpen);
   return (
     <div
-      className={`flex gap-2 relative items-center ${
+      style={{
+        backgroundColor: planData.length > 1 ? "" : color.light,
+        padding: planData.length > 1 ? "" : "0px 12px",
+        color: color.primary,
+      }}
+      className={`flex gap-2 mt-1.5 mb-3 relative h-[36px]  items-center rounded-full justify-between ${
         isHovered ? "tooltip-container" : ""
       } `}
     >
@@ -28,11 +35,7 @@ const Summary = ({ planData, color, data, serial, setSerial }) => {
         />
       ) : (
         <div
-          style={{
-            backgroundColor: color.light,
-            color: color.primary,
-          }}
-          className="py-2 px-3 my-3 rounded-full text-xs w-fit"
+          className="rounded-full text-xs w-fit text-nowrap"
           dangerouslySetInnerHTML={{ __html: data?.title }}
         ></div>
       )}
@@ -43,7 +46,10 @@ const Summary = ({ planData, color, data, serial, setSerial }) => {
       >
         <LuInfo color={color.primary} />
       </div>
-      <Tooltip style={{ bottom: "100%" }} desc={data?.text} />
+      <Tooltip
+        style={{ bottom: "120%", overflowWrap: "normal !important" }}
+        desc={data?.text}
+      />
     </div>
   );
 };

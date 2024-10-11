@@ -6,10 +6,19 @@ const CardHeader = ({ data, color }) => {
   const initialPrice = data.details["1_year"].price;
   return (
     <>
+      <p
+        className="text-right -mr-2 w-fit ml-auto mt-2 h-6 text-white px-2 flex items-center justify-center rounded-[4px] text-xs"
+        style={{
+          background: data?.name?.toLowerCase() === "pro" ? color.primary : "", // may also be determined by - data from the server / 3rd card (idx/position === 2)
+        }}
+      >
+        {data?.name?.toLowerCase() === "pro" ? "Most Popular" : ""}
+      </p>
       <p className="text-lg">{data?.name}</p>
-      <div className="flex items-end justify-start gap-1">
+
+      <div className="flex items-center justify-start gap-1">
         <p
-          className="font-semibold text-3xl"
+          className="font-semibold text-[32px]"
           style={{
             color: color.primary,
           }}
@@ -17,7 +26,7 @@ const CardHeader = ({ data, color }) => {
           {data.details[billingDuration].price}
         </p>
         <div>
-          <p className="h-4 font-normal text-sm ml-1 text-red-500 line-through">
+          <p className="h-4 font-normal text-xs ml-1 text-red-500 line-through">
             {initialPrice != data.details[billingDuration].price &&
               initialPrice + data.details[billingDuration].price_postfix}
           </p>

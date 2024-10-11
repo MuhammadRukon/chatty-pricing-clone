@@ -21,7 +21,7 @@ const PricingSection = () => {
   }, [data]);
 
   return (
-    <div className="min-h-[100vh] w-full py-24  font-rubik">
+    <div className="min-h-[100vh] w-full py-24 font-rubik overflow-hidden">
       <div>
         <Tabs />
         <Wrapper>
