@@ -21,10 +21,10 @@ const Dropdown = ({
       onClick={() => {
         setIsOpen(!isOpen);
       }}
-      className="py-2 relative px-3 my-3 border rounded-lg text-xs w-fit cursor-pointer"
+      className="p-2 my-3 border rounded-lg text-xs cursor-pointer"
     >
-      <div className="flex items-center gap-2 w-full overflow-hidden">
-        <span>
+      <div className="flex items-center justify-between gap-1 w-full overflow-hidden">
+        <span className="text-nowrap max-w-[137px] overflow-hidden text-ellipsis">
           {data?.title.replace("<strong>", "").replace("</strong>", "")}
         </span>
         <div

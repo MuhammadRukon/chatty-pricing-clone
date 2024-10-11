@@ -22,7 +22,7 @@ const Tabs = () => {
   const handleDurationChange = (duration) => {
     dispatch(setBillingDuration(duration));
   };
-  console.log(billingDuration);
+
   return (
     <div className="flex justify-center gap-4">
       {tabTexts.map((text, idx) => (

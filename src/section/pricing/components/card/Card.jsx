@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import CardHeader from "./components/Header";
-import DropDown from "./components/Dropdown";
 import Summary from "./components/Summary";
 import Features from "./features/Features";
 import CtaButton from "./components/CtaButton";
@@ -14,9 +13,10 @@ const Card = ({ planData, color }) => {
   return (
     <div
       style={{
-        boxShadow: `inset 0 10px ${color.primary}`,
+        // boxShadow: `inset 0 10px ${color.primary}`,
+        borderTop: `8px solid ${color.primary}`,
       }}
-      className="border p-4 rounded-lg flex flex-col text-slate"
+      className="border w-full border-[#eaeff2] p-4 rounded-lg flex flex-col text-slate"
     >
       <CardHeader data={data} color={color} />
       <Summary
@@ -25,7 +25,6 @@ const Card = ({ planData, color }) => {
         data={data}
         setSerial={setSerial}
         setData={setData}
-        DropDown={DropDown}
       />
       <Features planName={data?.name} />
       <CtaButton color={color} data={data} />

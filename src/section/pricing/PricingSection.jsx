@@ -11,18 +11,17 @@ import Tabs from "./components/tabs/Tabs";
 
 const PricingSection = () => {
   const dispatch = useDispatch();
-  // get data
+
   const data = useGetData();
+  const planNames = useSetPlanNames(data);
+  const modifiedData = useModifyData(planNames, data);
+
   useEffect(() => {
     dispatch(setPricingData(data));
   }, [data]);
-  // set plan names
-  const planNames = useSetPlanNames(data);
-  // modify data
-  const modifiedData = useModifyData(planNames, data);
 
   return (
-    <div className="h-[100vh] w-full flex items-center text-text justify-center font-rubik">
+    <div className="min-h-[100vh] w-full py-24  font-rubik">
       <div>
         <Tabs />
         <Wrapper>
